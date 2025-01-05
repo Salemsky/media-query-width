@@ -67,5 +67,10 @@ describe('mediaQueryWidth', () => {
       fn1 = mqw({})(['']);
     strictEqual(fn() || fn1(), '');
   });
+
+  test('query with template', () => {
+    const fn = mqw({ a: 160 }, { min: 'a' })`display:block;`;
+		strictEqual(fn(), '@media (min-width:10em){display:block;}');
+  });
 });
 
