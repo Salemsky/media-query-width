@@ -1,6 +1,6 @@
 {
   "name": "media-query-width",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A small utility (559b or lite 271b) for creating responsive media queries",
   "repository": "https://github.com/Salemsky/media-query-width.git",
   "main": "dist/index.js",
