@@ -8,12 +8,14 @@ const mix = (s, exp) => {
   return res;
 };
 
+const falsy = (v) => v === false || v === null || v === undefined || v === '';
+
 const flat = (s, p) => {
   let chunk,
     res = '';
   for (let i = 0; i < s.length; i++) {
     chunk = s[i];
-    if (!chunk) {
+    if (falsy(chunk)) {
       continue;
     } else if (Array.isArray(chunk)) {
       res += flat(chunk, p);
@@ -23,8 +25,9 @@ const flat = (s, p) => {
       let out = '';
       for (let k in chunk) {
         const v = chunk[k];
+        if (falsy(v)) continue;
         k = k.replace(/[A-Z]/g, '-$&').toLowerCase();
-        out += v && k + ':' + v + ';';
+        out += k + ':' + v + ';';
       }
       res += out;
     } else {

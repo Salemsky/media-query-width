@@ -27,7 +27,7 @@ type Interpolation<p extends object = {}> =
         theme: Theme;
       },
     ) => Interpolation<p>)
-  | { [k: string]: p | string | number | undefined }
+  | { [k: string]: p | string | number | false | null | undefined }
   | TemplateStringsArray
   | string
   | number
